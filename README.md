@@ -1,6 +1,8 @@
 # all-the-things
 
-## What y'all need to do!
+
+## Things to accomplish today!
+
 
 Each member of your team should add the following items to this project, following the GitHub Group Workflow Document:
 
