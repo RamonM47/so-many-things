@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Routes } from 'react-router-dom'
 import './App.css';
 import FunctionalThings from '../FunctionalThings/FunctionalThings'
 import StyledThings from '../StyledThings/StyledThings'
+import Home from '../Home/Home';
 
 class App extends Component {
   state = { 
@@ -54,21 +55,12 @@ class App extends Component {
   render() {
     return (
       <>
-        <Route exact path='/'>
-          <>
-            {/* All the <a> tags should live here */}
-            <h1>All-The-Things</h1>
-            <Link to="/the-functional-things">Shahzad's Things</Link><br/>
-            <Link to="/the-well-styled-things">David's Things</Link><br/>
-          </>
-        </Route>
-        {/* All the <Route> components should live here */}
-        <Route exact path='/the-functional-things'>
-          <FunctionalThings things={this.state.shahzadsThings} />
-        </Route>
-        <Route exact path='/the-well-styled-things'>
-          <StyledThings things={this.state.davidsThings} />
-        </Route>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          {/* All the <Route> components should live here */}
+          <Route path='/the-functional-things' element={<FunctionalThings things={this.state.shahzadsThings} />} />
+          <Route path='/the-well-styled-things' element={<StyledThings things={this.state.davidsThings} />} />
+        </Routes>
       </>
       
     );
